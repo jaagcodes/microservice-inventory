@@ -50,5 +50,5 @@ $ npx mikro-orm seeder:create DatabaseSeeder
 $ npx mikro-orm seeder:run --class=DatabaseSeeder
 
 # Run redis
-$ docker run -d --name redis -p 6379:6379 redis:latest
+$ podman run -d --name redis -p 6379:6379 redis:latest
 ```
