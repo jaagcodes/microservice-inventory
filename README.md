@@ -1,5 +1,7 @@
 ## Description
 
+Información detallada del proyecto, link [Project Documentation](https://docs.google.com/document/d/1xEZjv7BeK5caYlE6CbTgcD2VExi5BSZe4gDqh9GY1To/edit?usp=sharing).
+
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation
