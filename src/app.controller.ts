@@ -17,13 +17,12 @@ export class AppController {
     return this.appService.getAllIngredients();
   }
 
-  @EventPattern('ingredient_request')
+  @EventPattern('ingredients_request')
   async handleIngredientRequest(data: {
     orderId: string;
     recipeId: string;
-    ingredientId: string;
-    quantity: number;
+    ingredients: { ingredientId: string; quantity: number }[];
   }) {
-    await this.appService.handleIngredientRequest(data);
+    await this.appService.handleIngredientsRequest(data);
   }
 }

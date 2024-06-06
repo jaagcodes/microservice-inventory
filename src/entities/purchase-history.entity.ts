@@ -11,6 +11,9 @@ export class PurchaseHistory {
   ingredient: Ingredient;
 
   @Property()
+  ingredientName: string;
+
+  @Property()
   quantityPurchased: number;
 
   @Property()

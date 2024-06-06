@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { HttpModule } from '@nestjs/axios';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
@@ -6,12 +7,14 @@ import mikroOrmConfig from './mikro-orm.config';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { Ingredient } from './entities/ingredients.entity';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import { PurchaseHistory } from './entities/purchase-history.entity';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     MikroOrmModule.forRoot(mikroOrmConfig),
-    MikroOrmModule.forFeature([Ingredient]),
+    MikroOrmModule.forFeature([Ingredient, PurchaseHistory]),
+    HttpModule,
     ClientsModule.registerAsync([
       {
         name: 'INVENTORY',

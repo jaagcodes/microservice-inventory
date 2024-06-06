@@ -82,6 +82,15 @@
           "nullable": false,
           "mappedType": "uuid"
         },
+        "ingredient_name": {
+          "name": "ingredient_name",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
         "quantity_purchased": {
           "name": "quantity_purchased",
           "type": "int",
