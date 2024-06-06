@@ -48,7 +48,6 @@ export class AppService {
       if (ingredient && ingredient.availableQuantity >= ingredientRequest.quantity) {
         ingredient.availableQuantity -= ingredientRequest.quantity;
         await this.em.persistAndFlush(ingredient);
-        console.log(`Ingredient ${ingredientRequest.ingredientId} available: TRUE`);
         this.logger.log(`Ingredient ${ingredientRequest.ingredientId} available: TRUE`);
         ingredientAvailabilities.push({
           ingredientId: ingredientRequest.ingredientId,
