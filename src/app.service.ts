@@ -118,4 +118,14 @@ export class AppService {
   async getAllIngredients(): Promise<Ingredient[]> {
     return await this.ingredientRepository.findAll();
   }
+
+  async getPurchaseHistory(page: number, limit: number): Promise<{ data: PurchaseHistory[], total: number }> {
+    const [data, total] = await this.purchaseHistoryRepository.findAndCount({}, {
+      limit,
+      offset: (page - 1) * limit,
+    });
+
+    return { data, total };
+  }
+  
 }
