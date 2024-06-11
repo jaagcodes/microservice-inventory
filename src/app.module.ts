@@ -1,13 +1,16 @@
 import { Module } from '@nestjs/common';
 import { HttpModule } from '@nestjs/axios';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppService } from './services/app.service';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import mikroOrmConfig from './mikro-orm.config';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { Ingredient } from './entities/ingredients.entity';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { PurchaseHistory } from './entities/purchase-history.entity';
+import { PurchaseHistoryService } from './services/purchase-history.service';
+import { IngredientService } from './services/ingredient.service';
+import { MarketService } from './services/market.service';
 
 @Module({
   imports: [
@@ -31,6 +34,6 @@ import { PurchaseHistory } from './entities/purchase-history.entity';
     ]),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, PurchaseHistoryService, IngredientService, MarketService],
 })
 export class AppModule {}
