@@ -5,6 +5,7 @@ import { PurchaseHistoryService } from './services/purchase-history.service';
 import { EventPattern } from '@nestjs/microservices';
 import { PurchaseHistory } from './entities/purchase-history.entity';
 import { Ingredient } from './entities/ingredients.entity';
+import { HealthCheckService } from './services/health-check.service';
 
 @Controller()
 export class AppController {
@@ -14,7 +15,19 @@ export class AppController {
     private readonly appService: AppService,
     private readonly ingredientService: IngredientService,
     private readonly purchaseHistoryService: PurchaseHistoryService,
+    private readonly healthCheckService: HealthCheckService,
   ) {}
+
+  @Get('health')
+    getHealthStatus(): string {
+      try {
+        this.logger.log('Checking health status');
+        return this.healthCheckService.getHealthStatus();
+      } catch (error) {
+        this.logger.error('Error checking health status', error.stack);
+        throw new InternalServerErrorException('Error checking health status');
+      }
+    }
 
   @Get('ingredients')
   async getAllIngredients(): Promise<Ingredient[]> {

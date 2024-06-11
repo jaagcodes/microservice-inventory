@@ -11,6 +11,7 @@ import { PurchaseHistory } from './entities/purchase-history.entity';
 import { PurchaseHistoryService } from './services/purchase-history.service';
 import { IngredientService } from './services/ingredient.service';
 import { MarketService } from './services/market.service';
+import { HealthCheckService } from './services/health-check.service';
 
 @Module({
   imports: [
@@ -34,6 +35,6 @@ import { MarketService } from './services/market.service';
     ]),
   ],
   controllers: [AppController],
-  providers: [AppService, PurchaseHistoryService, IngredientService, MarketService],
+  providers: [AppService, PurchaseHistoryService, IngredientService, MarketService, HealthCheckService],
 })
 export class AppModule {}
